@@ -167,8 +167,7 @@ class GeneticSolver :
         tm : taux de mutation [0, 1] -> si on veut quelques chose qui finit par arriver à la solution on doit le garder assez bas
         """
         
-        nb_mutations = int(len(self.population) * tm)
-        
+        nb_mutations = int(self.population.size * tm)        
         for i in range(nb_mutations):
             idx_individu = np.random.randint(0, len(self.population))
             
