@@ -73,17 +73,47 @@ class GeneticSolver :
         Plus elle est basse mieux c'est
         """
         penalties = 0
+        curr_i, curr_j = self.start
         (end_i, end_j), steps = self.endCell(genome)
         (goal_i, goal_j) = self.goal
+
+        visited = set()
+        visited.add((curr_i, curr_j))
+        
+        steps = 0
+        backtracks = 0
+        
+        # On simule le chemin manuellement ici pour avoir le contrôle
+        for gene in genome:
+            di, dj = self.directions[gene]
+            next_i, next_j = curr_i + di, curr_j + dj
+            
+            # Vérification Mur / Hors Map
+            if not (0 <= next_i < self.N and 0 <= next_j < self.N and self.matrix[next_i, next_j] != 0):
+                # On s'arrête net si on tape un mur
+                break
+            
+            # Vérification Backtracking (Votre idée)
+            if (next_i, next_j) in visited:
+                backtracks += 1
+            else:
+                visited.add((next_i, next_j))
+            
+            curr_i, curr_j = next_i, next_j
+            steps += 1
+            
+            if (curr_i, curr_j) == self.goal:
+                break
         
         #pour savoir notre distance au but, on utilise la distance de manhattan, c'est ce qu'il y à de plus précis sur une grille
         distance = abs(end_i - goal_i) + abs(end_j - goal_j)
 
         penalties += distance * 0.2
+        penalties += backtracks
         if distance == 0:
-            penalties -= 50
+            penalties -= 500
         else :
-            penalties += 10
+            penalties += 20
 
         murs_autour = 0
         card =[
