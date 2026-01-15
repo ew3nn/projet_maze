@@ -79,7 +79,7 @@ class GeneticSolver :
         #pour savoir notre distance au but, on utilise la distance de manhattan, c'est ce qu'il y à de plus précis sur une grille
         distance = abs(end_i - goal_i) + abs(end_j - goal_j)
 
-        penalties += distance
+        penalties += distance * 0.2
         if distance == 0:
             penalties -= 50
         else :
@@ -105,6 +105,7 @@ class GeneticSolver :
             penalties += genome_lenght #cette solution est forcément mauvaise donc on veut la virer
         if murs_autour >= 7:
             penalties += 2
+        penalties -= steps*0.2
 
         return penalties
     
