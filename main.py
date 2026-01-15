@@ -116,7 +116,7 @@ def main():
     POPULATION_SIZE = 100
     GENOME_LENGTH = N * 3
 
-    gen_solver = GeneticSolver(M, start, goal)
+    gen_solver = GeneticSolver(M.copy(), start, goal)
     population = gen_solver.genese(POPULATION_SIZE, GENOME_LENGTH)
 
     # Juste pour voir à quoi ressemble le premier individu

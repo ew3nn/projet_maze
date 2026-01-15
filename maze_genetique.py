@@ -78,8 +78,10 @@ class GeneticSolver :
         
         #pour savoir notre distance au but, on utilise la distance de manhattan, c'est ce qu'il y à de plus précis sur une grille
         distance = abs(end_i - goal_i) + abs(end_j - goal_j)
+
+        penalties += distance
         if distance == 0:
-            penalties -= 10
+            penalties -= 50
         else :
             penalties += 10
 
