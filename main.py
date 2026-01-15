@@ -142,11 +142,11 @@ def main():
     print("\n--- Lancement de l'Algorithme Génétique Complet ---")
     
     # HYPERPARAMETR§ES
-    MAX_GEN = 700
+    MAX_GEN = 800
     TS = 0.4
     TM = 0.1
-    POPULATION_SIZE = 100
-    GENOME_LENGTH = N * 3
+    POPULATION_SIZE = 200
+    GENOME_LENGTH = N * 5
     USE_PHEROMONES = True
     
     # Nouvelle génèse

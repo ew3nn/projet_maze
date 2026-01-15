@@ -109,7 +109,6 @@ class GeneticSolver :
         #  c'est ce qu'il y à de plus précis sur une grille
         distance = abs(end_i - goal_i) + abs(end_j - goal_j)
 
-        penalties += distance * 0.2
         penalties += backtracks
         if distance == 0:
             penalties -= 500
