@@ -79,6 +79,7 @@ class GeneticSolver :
 
         visited = set()
         visited.add((curr_i, curr_j))
+        hit_wall = False
         
         steps = 0
         backtracks = 0
@@ -90,7 +91,7 @@ class GeneticSolver :
             
             # Vérification Mur / Hors Map
             if not (0 <= next_i < self.N and 0 <= next_j < self.N and self.matrix[next_i, next_j] != 0):
-                # On s'arrête net si on tape un mur
+                hit_wall = True
                 break
             
             # Vérification Backtracking
@@ -114,6 +115,9 @@ class GeneticSolver :
             penalties -= 500
         else :
             penalties += 20
+
+        if hit_wall :
+            penalties += 10
 
         murs_autour = 0
         card =[
