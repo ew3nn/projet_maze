@@ -83,7 +83,7 @@ class GeneticSolver :
         steps = 0
         backtracks = 0
         
-        # On simule le chemin manuellement ici pour avoir le contrôle
+        # On simule le chemin manuellement ici pour avoir le contrôle sur le backtracs qui est embetant
         for gene in genome:
             di, dj = self.directions[gene]
             next_i, next_j = curr_i + di, curr_j + dj
@@ -93,7 +93,7 @@ class GeneticSolver :
                 # On s'arrête net si on tape un mur
                 break
             
-            # Vérification Backtracking (Votre idée)
+            # Vérification Backtracking
             if (next_i, next_j) in visited:
                 backtracks += 1
             else:
@@ -105,7 +105,8 @@ class GeneticSolver :
             if (curr_i, curr_j) == self.goal:
                 break
         
-        #pour savoir notre distance au but, on utilise la distance de manhattan, c'est ce qu'il y à de plus précis sur une grille
+        #pour savoir notre distance au but, on utilise la distance de manhattan
+        #  c'est ce qu'il y à de plus précis sur une grille
         distance = abs(end_i - goal_i) + abs(end_j - goal_j)
 
         penalties += distance * 0.2
@@ -134,7 +135,7 @@ class GeneticSolver :
         if steps == 0 :
             penalties += genome_lenght #cette solution est forcément mauvaise donc on veut la virer
         if murs_autour >= 7:
-            penalties += 2
+            penalties += 5
         penalties -= steps*0.2
 
         return penalties
