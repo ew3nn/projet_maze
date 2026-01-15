@@ -144,7 +144,7 @@ def main():
     # HYPERPARAMETR§ES
     MAX_GEN = 50
     TS = 0.5
-    TM = 0.08
+    TM = 0.4
     POPULATION_SIZE = 100
     GENOME_LENGTH = N * 3
     USE_PHEROMONES = True
