@@ -147,7 +147,7 @@ def main():
     TM = 0.1
     POPULATION_SIZE = 200
     GENOME_LENGTH = N * 5
-    USE_PHEROMONES = False
+    USE_PHEROMONES = True
     
     # Nouvelle génèse
     print("Réinitialisation de la population...")

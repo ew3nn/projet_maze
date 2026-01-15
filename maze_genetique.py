@@ -139,7 +139,7 @@ class GeneticSolver :
             penalties += genome_lenght #cette solution est forcément mauvaise donc on veut la virer
         if murs_autour >= 7:
             penalties += 5
-        penalties -= steps*0.2
+        penalties -= steps*0.5
 
         return penalties
     
